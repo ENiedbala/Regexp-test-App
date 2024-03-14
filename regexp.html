@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>regexp test</title>
+    <link rel="stylesheet" href="regexp.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="formWrapper">
+            <form>
+                <label for="regexp">Wpisz wyrażenie regularne:</label>
+                <input id="regexp" type="text" placeholder="Podaj wyrażenie regularne">
+
+                <label for="text">Wpisz tekst który chcesz przeszukać:</label>
+                <textarea id="text" name="story" rows="5" cols="33" placeholder="Wpisz tekst"></textarea>
+                <button class="buttonShow"> wyszukaj wyrażenie</button>
+                <button class="clearButton">Wyczyść</button>
+                <div class="info">
+                    <p class="infop"></p>
+                    <p class="infoplist"></p>
+                </div>
+            </form>
+            <div class="info">
+                <p></p>
+            </div>
+        </div>
+
+    </div>
+    <script src="regexp.js"></script>
+</body>
+
+</html>
