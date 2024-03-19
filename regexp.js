@@ -11,13 +11,19 @@ const info = document.querySelector('.infop');
 const infoList = document.querySelector('.infoplist');
 const inputArea = [inutTextToFind, regexp];
 
-const printValue = counterElement => {
+const printValue = (counterElement, outputElement) => {
 	if (counterElement > 0) {
 		info.innerText = ` ${counterElement} wyrażenia występujące w tekście spełniają wymagania `;
+		infoList.innerText = `Wyrażenia spełniające wymagania to : ${outputElement.flat(
+			1
+		)}`;
 	} else {
 		info.innerText = `W tekście nie ma wyrażenwyrażeń spełniających wymagania`;
+		infoList.innerText = ``;
 	}
+	if()
 };
+
 button.addEventListener('click', e => {
 	e.preventDefault();
 	const re = regexp.value;
@@ -25,13 +31,9 @@ button.addEventListener('click', e => {
 	const inputValue = inutTextToFind.value;
 	const regMatchAll = [...inputValue.matchAll(reg)];
 
-	regMatchAll.forEach(el => {
-		const element = el[0];
+	const tab = regMatchAll.flat(1);
 
-		printValue(regMatchAll.length);
-
-		return element;
-	});
+	printValue(regMatchAll.length, regMatchAll);
 });
 
 clearBtn.addEventListener('click', () => {
