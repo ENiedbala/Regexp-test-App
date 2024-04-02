@@ -18,22 +18,34 @@ const printValue = (counterElement, outputElement) => {
 			1
 		)}`;
 	} else {
-		info.innerText = `W tekście nie ma wyrażenwyrażeń spełniających wymagania`;
+		info.innerText = `W tekście nie ma wyrażeń spełniających wymagania`;
 		infoList.innerText = ``;
 	}
-	if()
+};
+const checkSlash = re => {
+	let reg = '';
+
+	if (re.charAt(0) == '/' || re.charAt(re.length - 1) == '/') {
+		reg = re.slice(1, re.length - 1);
+		return reg;
+	} else {
+		reg = regexp.value;
+		return reg;
+	}
 };
 
 button.addEventListener('click', e => {
 	e.preventDefault();
 	const re = regexp.value;
-	const reg = re.slice(1, re.length - 1);
 	const inputValue = inutTextToFind.value;
-	const regMatchAll = [...inputValue.matchAll(reg)];
-
+	const regMatchAll = [...inputValue.matchAll(checkSlash(re))];
 	const tab = regMatchAll.flat(1);
-
-	printValue(regMatchAll.length, regMatchAll);
+	if (re === '') {
+		info.innerText = `Wpisz wyrażenie regularne w pole aby wyszukać`;
+		infoList.innerText = ``;
+	} else {
+		printValue(regMatchAll.length, regMatchAll);
+	}
 });
 
 clearBtn.addEventListener('click', () => {
